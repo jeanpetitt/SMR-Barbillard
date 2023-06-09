@@ -65,6 +65,10 @@ body {
           align-items: flex-start;
 }
 
+#side-nav{
+  background: #1ba8ef;
+}
+
 #side-nav a:hover,
 a:hover {
   text-decoration: none;
