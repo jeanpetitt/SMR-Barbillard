@@ -1,25 +1,48 @@
 {% load static %}
 
 <style>
-	.top-side {
-		background-size: cover;
-		background-position: top center;
+	#side-nav{
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #93AEF2;
+		width: 270px;
+		
 	}
-	.side-nave{
-		background-color: blueviolet;
+	
+	#side-nav .top-side .desktop-hide {
+  		display: none;
+	}
+
+
+	#side-nav ul li  a {
+		color: #ffffff;
+	}
+
+	#side-nav ul li.active a {
+		background: #ffffff;
+		color: rgb(150, 148, 148);
+		border-radius: 30px 0px 0px 30px;
+	}
+
+	#side-nav.toggle-active {
+		-webkit-box-shadow: 0px 0px 0px 0px #dbdbdb;
+		box-shadow: 0px 0px 0px 0px #dbdbdb;
+		left: -300px;
+	}
+
+	#side-nav ul li a:hover {
+		color: #ccddf0;
+		background: rgba(0, 111, 255, 0.05);
 	}
 </style>
 
 <div id="side-nav">
 	<div class="main-menu">
-		<div class="top-side text-center py-4" style="background-image: url({% static 'img/dotted.jpg' %});">
+		<div class="top-side text-center py-3">
 			<div class="desktop-hide">
 				<div class="toggle-btn" onclick="toggleSidebar()">
 					<i class="fas fa-times"></i>
 				</div>
 			</div>
-			<img src="{% static 'img/logo.png' %}" width="150px" alt="Barbillard">
-			<p class="text-orange">
+			<p class="">
 				<mark>
 					<i class="far fa-hand-point-right"></i>
 					{{ request.user.get_user_role }}
@@ -66,7 +89,7 @@
 			{% endif %}
 
 			<li class="{% if request.path == pro %}active{% endif %}">
-				<a href="{% url 'programs' %}"><i class="fas fa-book-open"></i>Programs & Courses</a>
+				<a href="{% url 'programs' %}"><i class="fas fa-book-open"></i>Department & Courses</a>
 			</li>
 
 			{% if request.user.is_superuser or request.user.is_lecturer %}
@@ -131,7 +154,7 @@
 			<p>
 				<a href="https://www.linkedin.com/in/jeanpetit/" target="_blank">By Group Barbillard Team</a>
 			</p>
-			<a href="https://github.com/jeanpetitt/SMR-Barbillard" class="btn btn-sm btn-dark mx-auto" target="_blank">
+			<a href="https://github.com/adilmohak/django-lms" class="btn btn-sm btn-dark mx-auto" target="_blank">
 				⭐️ Star on GitHub
 			</a>
 		</div>

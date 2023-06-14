@@ -1,10 +1,105 @@
 {% extends 'registration/registration_base.html' %}
 {% block title %}DjangoSMS - Login{% endblock title %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
 
-<div id="login">
-  <div class="login-title blue-gradient"><i class="fas fa-lock"></i>Sign in</div>
+<style>
+
+body{
+    background-color: #e5daf0;
+}
+
+.login .card{
+    border-radius: 1rem;
+    position: relative;
+}
+
+.login .card .img{
+    border-radius: 1rem 0 0 1rem;
+}
+
+.login .card i {
+    color: #9f2aec;
+}
+
+.padd {
+    color: #393f81;
+}
+
+.card{
+    box-shadow: 4px 3px 2px 0.5rem rgb(222, 213, 240);
+    margin-top: -20px;
+}
+#login-btn{
+    background: #8b92df;
+    width: 120px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
+
+
+</style>
+<section class="vh-100 login">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-7 d-none d-md-block">
+              <img src="{% static 'img/login-img.jpg' %}"
+                alt="login form" class="img-fluid img"
+				/>
+            </div>
+            <div class="col-md-6 col-lg-4 d-flex align-items-center">
+              <div class="card-body p-2  p-lg-3 text-black">
+
+                <form method="POST" id="login-form">
+                  {% csrf_token %}
+                  <h5 class="fw-normal mb-3 pb-3 text-center mt-10 title"></h5>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="username_id"><i class="fas fa-address-card"></i> Username</label>
+                    <input type="" id="username_id" name="username" class="form-control form-control-lg" required/>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="password_id"><i class="fas fa-key"></i> Password</label>
+                    <input type="password" id="password_id" name="password" class="form-control form-control-lg" required/>
+                  </div>
+                  {% if form.errors %}
+                    <span class="text-danger text-center"><i class="fas fa-exclamation-circle"></i> login or password is not correct</span><br>
+                  {% endif %}
+                  <div class="pt-1 mb-4">
+                    <button type="submit" class="btn btn-primary" id="login-btn"><i class="fas fa-sign-in-alt"></i><small> SIGN IN</small></button>
+                  </div>
+                  <a href="{% url 'password_reset' %}" class="link reset">Forgot password ?</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <div id="login">
+  <style>
+    .login-title{
+      background: rgb(150, 56, 238);
+    }
+    .reset{
+      color: rgb(150, 56, 238);
+    }
+    .form-group input{
+      height: 45px;
+      padding: 5%;
+    }
+  </style>
+  <div class="login-title"><i class="fas fa-lock"></i>Sign in</div>
 
   <form action="" method="POST" id="login-form">{% csrf_token %}
     <div class="form-group px-3">
@@ -23,8 +118,8 @@
     <button type="submit" class="btn btn-primary" id="login-btn"><i class="fas fa-sign-in-alt"></i><small> SIGN IN</small></button>
   </form>
   <br>
-  <a href="{% url 'password_reset' %}" class="link">Forgot password ?</a>
-</div>
+  <a href="{% url 'password_reset' %}" class="link reset">Forgot password ?</a>
+</div> -->
 {% endblock content %}
 
 {% block js %}
@@ -33,7 +128,7 @@
   $('#login-form').submit(function (e) {
     // e.preventDefault();
     $('#login-btn').addClass('disabled')
-    $('#login-btn').html(`<i class="fas fa-sign-in-alt"></i> Signining you in . . .`)
+    $('#login-btn').html(`<i class="fas fa-sign-in-alt"></i> <small>Sign in . . .</small>`)
   })
 
   $("#username").on("input", function () {
