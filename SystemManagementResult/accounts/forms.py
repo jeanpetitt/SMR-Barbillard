@@ -11,35 +11,35 @@ from .models import *
 
 class StaffAddForm(UserCreationForm):
     username = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'placeholder':'Username',}),
         label="Username", )
 
     first_name = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'placeholder':'First Name',}),
         label="First Name", )
 
     last_name = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'placeholder':'Last Name',}),
         label="Last Name", )
 
     address = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'placeholder':'Adress',}),
         label="Address", )
 
     phone = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'placeholder':'Mobile No',}),
         label="Mobile No.", )
 
     email = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'text', 'class': 'form-control', 'placeholder':'Email',}),
         label="Email", )
 
     password1 = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control', 'placeholder':'Password',}),
         label="Password", )
 
     password2 = forms.CharField(
-        max_length=30, widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control', }),
+        max_length=30, widget=forms.TextInput(attrs={'type': 'password', 'class': 'form-control', 'placeholder':'Password Confirmation',}),
         label="Password Confirmation", )
 
     class Meta(UserCreationForm.Meta):
